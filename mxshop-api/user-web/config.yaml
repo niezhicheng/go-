@@ -1,0 +1,38 @@
+name: 'user-web'
+port: 8021
+user_srv:
+  host: '127.0.0.1'
+  port: 50051
+  name: 'user-srv'
+
+
+jwt:
+  key: '9zZ#2gg+7pGO9C12NahNF#5KIEc#HQ5E'
+
+
+tengxuninfo:
+  apikey: "AKIDqX0DBvQghT2OXQ4SlpeFbjcGenhL7lAL"
+  apisecrect: "ziCRRCQaWhlcEbnlUyCD0X7aopb8RVKv"
+  expire: 300
+
+
+
+redisinfo:
+  host: "127.0.0.1"
+  port: 6369
+
+
+consul:
+  host: '172.16.39.133'
+  port: 8500
+
+
+
+nacos:
+  host: '127.0.0.1'
+  port: 8848
+  namespace: '9f8f0f46-f183-425a-bb52-487c48262e1f'
+  user: 'nacos'
+  password: 'nacos'
+  dataid: 'config.json'
+  group: 'DEFAULT_GROUP'

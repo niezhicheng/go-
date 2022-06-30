@@ -1,0 +1,13 @@
+mysqlinfo:
+  host: '127.0.0.1'
+  port: 3306
+  name: 'usersrv'
+  user: 'usersrv'
+  password: 'usersrv'
+
+
+consul:
+  host: '172.16.39.133'
+  port: 8500
+
+name: 'user-srv'
