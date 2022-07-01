@@ -62,7 +62,7 @@ func GetUserList(ctx *gin.Context)  {
 	//从注册中心获取到用户服务的信息
 	cfg := api.DefaultConfig()
 	consulInfo := global.ServerConfig.ConsulInfo
-	zap.S().Errorw("这是consulinfo",consulInfo.Host,consulInfo.Port)
+	zap.S().Infof("这是consulinfo",consulInfo.Host,consulInfo.Port)
 	cfg.Address = fmt.Sprintf("%s:%d",consulInfo.Host,consulInfo.Port)
 	fmt.Println(cfg.Address)
 	userSrvHost := ""
@@ -75,6 +75,7 @@ func GetUserList(ctx *gin.Context)  {
 
 	if serviceerr != nil{
 		panic(servicedata)
+		zap.S().Error("是这边报错了")
 	}
 	for _, service := range servicedata {
 		userSrvHost = service.Address
@@ -165,7 +166,8 @@ func PasswordLogin(ctx *gin.Context)  {
 	passwordLoginForm := forms.PassWordLoginForm{}
 	if err := ctx.ShouldBind(&passwordLoginForm);err != nil{
 		// 如何返回错误信息
-		zap.S().Errorw("失败了","1")
+		//zap.S().Errorw(err.Error() + "失败的愿意",)
+		//zap.S().Errorw("失败了","1")
 		HandleValidatorError(ctx,err)
 		return
 	}
